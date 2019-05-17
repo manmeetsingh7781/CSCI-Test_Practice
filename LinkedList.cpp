@@ -12,31 +12,43 @@ struct Node {
 
 int main() { 
   int start;
-	char letter;
+	
+  char letter;
+	
   // Initilize the List
   Node *head = NULL;
+	
   Node *currunt;
 
 // Adding new Node
 for(start = 1; start <= 26; start++){
      currunt = new Node();
+	
      currunt->next = head;
+	
      head = currunt;
  }
   // loop to add values in nodes
   currunt = head;
+	
   letter = 'A';
-	while(currunt != NULL) {
+	
+while(currunt != NULL) {
     currunt->data = letter;
+	
     letter++;
+	
    currunt = currunt->next;
-	}
+}
  // Loop to print 
-	currunt = head;
-	while(currunt != NULL) {
-		cout << currunt->data << endl;
-		currunt = currunt->next;
-	}
-	cout << endl;
-  return 0;
+currunt = head;
+while(currunt != NULL) {
+	
+cout << currunt->data << endl;
+	
+currunt = currunt->next;
+}
+	
+cout << endl;
+return 0;
 }
