@@ -1,3 +1,4 @@
+
 //Manmeet Singh
 //All the functions declarations of BigNumber.h
 #include "BigNumber.h"
@@ -10,19 +11,27 @@ using namespace std;
 void BigNumber::readbig()
 {
     string big;
+    
     int index, number, temp;
+    
     cin>>big;
+    
     number=big.length()-1;
+    
     for(index=0;index<=MAX_DIGITS-1;index++)
         num[index]=0;
     for(index=0;index<=number;index++)
     {
+        
         num[index]=big.at(index)-'0';
+        
     }
     for(index=0;index<=number/2;index++)
     {
         temp=num[index];
+        
         num[index]=num[number-index];
+        
         num[number-index]=temp;
     }
 }
@@ -31,7 +40,9 @@ void BigNumber::readbig()
 void BigNumber::printbig()
 {
     int index, counter;
+    
     index=MAX_DIGITS-1;
+    
     while(num[index]==0 and index>0)
         index--;
     for(counter=index; counter>=0; counter--)
@@ -42,9 +53,12 @@ void BigNumber::printbig()
 BigNumber BigNumber::addbig(BigNumber num2)
 {
     int index,carry;
+    
     BigNumber sum;
+    
     for(index=0;index<=MAX_DIGITS-1;index++)
         sum.num[index]=0;
+    
     for(index=0;index<=MAX_DIGITS-1;index++)
     {
         sum.num[index]=num[index]+num2.num[index];
@@ -52,8 +66,11 @@ BigNumber BigNumber::addbig(BigNumber num2)
     for(index=1;index<=MAX_DIGITS-1;index++)
     {
         carry=sum.num[index-1]/10;
+        
         sum.num[index-1]=sum.num[index-1]%10;
+        
         sum.num[index]+=carry;
     }
     return sum;
 }
+
